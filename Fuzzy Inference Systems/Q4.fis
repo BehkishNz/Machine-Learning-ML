@@ -1,0 +1,48 @@
+[System]
+Name='Q4'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='T'
+Range=[0 600]
+NumMFs=2
+MF1='LW':'trapmf',[0 0 250 500]
+MF2='HG':'trapmf',[250 500 600 600]
+
+[Input2]
+Name='M'
+Range=[0 1400]
+NumMFs=2
+MF1='SM':'trapmf',[0 0 500 1000]
+MF2='LG':'trapmf',[500 1000 1400 1400]
+
+[Input3]
+Name='P'
+Range=[0 2]
+NumMFs=2
+MF1='FR':'trapmf',[0 0 0.5 1.5]
+MF2='NR':'trapmf',[0.5 1.5 2 2]
+
+[Output1]
+Name='F'
+Range=[0 200]
+NumMFs=3
+MF1='RD':'trapmf',[0 0 50 75]
+MF2='MN':'trapmf',[50 75 125 150]
+MF3='IN':'trapmf',[125 150 200 200]
+
+[Rules]
+1 0 1, 3 (1) : 1
+2 0 0, 1 (1) : 1
+0 1 2, 2 (1) : 1
+0 2 1, 3 (1) : 1
+0 0 2, 1 (1) : 1
